@@ -1,5 +1,5 @@
 # Welcome to the project "Imagine a Github Profile Finder"
-==========================================================
+---------------------------------------------------------
 
 ## Introduction to Flask
 ------------------------
@@ -108,8 +108,8 @@ Once the server starts up, it goes into a loop that accepts requests and service
 
 With the server running, open your web browser and type ```http://localhost:5000/``` in the address bar.
 
-## My favorite option for Development Web Server
-------------------------------------------------
+## My favorite option for the Development Web Server
+----------------------------------------------------
 
 To declare the ```FLASK_APP``` variable we must modify the activate file of our Python environment.
 
@@ -146,8 +146,8 @@ On Linux/MacOS:
 export FLASK_ENV="development"
 ```
 
-### Don't use debug mode in a production environment
-====================================================
+### Remark: Don't use debug mode in a production environment
+----------------------------------------------------
 
 ## Deafult command
 
@@ -183,6 +183,7 @@ By default the site is hosted at `localhost:5000`.
 
 - [unittest — Unit testing framework](https://docs.python.org/3/library/unittest.html) for Unit testing.
 - [Flask Docs](https://flask.palletsprojects.com/en/1.1.x/testing/) for Testing Flask Applications.
+- [API - GitHub](https://api.github.com/users/juniors90) for data.
 
 
 Running the following commands:
@@ -195,4 +196,26 @@ Ran 5 tests in 4.505s
 
 OK
 
+```
+
+### Remark: As it is an API, the testing data is variable.
+
+Use your own account to consume the API. For example, change
+
+```
+https://api.github.com/users/juniors90
+```
+for
+```
+https://api.github.com/users/my-username
+```
+
+```python
+def test_access_to_finder(self):
+        user_data = self.finder_user(dict(username='my-username', ))
+        res = self.client.get('/')
+        self.assertEqual(200, user_data.status_code)
+        self.assertIn(b'my-username', user_data.data)
+        self.assertIn(b'Public: X', user_data.data) # X = number of my public repositories
+        self.assertIn(b'Followers: Y', user_data.data) # Y = number of my Followers
 ```
