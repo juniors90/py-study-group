@@ -15,7 +15,7 @@ class FinderClientTestCase(BaseTestClass):
     def test_index_with_no_finder(self):
         res = self.client.get('/')
         self.assertEqual(200, res.status_code)
-        self.assertIn(b'GitHub Profile Not Fin', res.data)
+        self.assertIn(b'GitHub Profile Not Find', res.data)
 
     def test_redirect_to_error(self):
         res = self.client.get('/error')
@@ -35,7 +35,7 @@ class FinderClientTestCase(BaseTestClass):
         self.assertIn(b'Public: 16', user_data.data)
         self.assertIn(b'Followers: 3', user_data.data)
 
-    def test_access_to_undefinde_finder(self):
+    def test_access_to_undefined_user(self):
         first_user_indefined = self.finder_user(dict(username='----jkgfjkasgjfs',))
         sec_user_indefined = self.finder_user(dict(username='--jgadjkgdsfjgfsj--',))
         third_user_indefined = self.finder_user(dict(username='jkgfjkasgjfs----',))

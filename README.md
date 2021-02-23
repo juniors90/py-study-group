@@ -56,7 +56,7 @@ To install requirements into the virtual environment, make sure the venv virtual
 (venv) $>pip install -r requirements.txt
 ```
 
-When you execute this command, ```pip``` will install all dependencies. ou can check what packages are installed in the virtual environment
+When you execute this command, ```pip``` will install all dependencies. You can check what packages are installed in the virtual environment
 at any time using the  ```pip freeze ``` command:
 
 ```
@@ -149,7 +149,7 @@ export FLASK_ENV="development"
 ### Remark: Don't use debug mode in a production environment
 ----------------------------------------------------
 
-## Deafult command
+## Default command
 
 Running the following commands:
 

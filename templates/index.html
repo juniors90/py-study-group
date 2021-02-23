@@ -3,7 +3,7 @@
 
 {% block title %}
     {% if profile %}
-        Github Profile of {{ form.username.data }}
+        Github Profile of {{ name }}
     {% else %}
         Github Profile Finder
     {% endif %}
@@ -79,7 +79,7 @@
             class="ui huge teal button labeled icon"
             href="{{ profile.html_url }}"
             target="_blank"
-            ><i class="icon github"></i> Check {{ form.username.data }}'s
+            ><i class="icon github"></i> Check {{ name }}'s
             profile
           </a>
         </div>
